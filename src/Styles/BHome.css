@@ -1,0 +1,283 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+.bhome-container {
+  width: 100%;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e53935;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  cursor: pointer;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li:hover {
+  color: #e53935;
+}
+
+/* Design Block Section */
+.bhome-design {
+  background-color: #fff5f5;
+  padding: 2rem 1rem;
+  border-radius: 12px;
+  width: 100%;
+}
+
+.headline {
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.headline .highlight {
+  color: crimson;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.start-donating,
+.learn-more {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border: 1px solid crimson;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.start-donating {
+  background-color: crimson;
+  color: white;
+}
+
+.start-donating:hover {
+  background-color: darkred;
+}
+
+.learn-more {
+  background-color: white;
+  color: crimson;
+}
+
+.learn-more:hover {
+  background-color: #ffeaea;
+}
+
+/* Why Choose Section */
+.why-choose {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+
+.feature-card {
+  background: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  max-width: 220px;
+  text-align: center;
+}
+
+/* Stats Section */
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: #ffeaea;
+  margin: 2rem 0;
+  padding: 2rem;
+  border-radius: 12px;
+  gap: 2rem;
+  width: 100%;
+}
+
+.stat-item {
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Latest Articles Section */
+.latest-articles {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 0 1rem;
+}
+
+.articles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.article-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+  width: 200px;
+}
+
+.article-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.article-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: crimson;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.article-card a:hover {
+  text-decoration: underline;
+}
+
+/* Registration Form */
+.bhome-form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 3rem auto;
+  width: 100%;
+}
+
+.bhome-form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.bhome-form input[type="text"],
+.bhome-form input[type="number"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.blood-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.blood-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.blood-row span {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+button[type="submit"] {
+  padding: 0.6rem 1.5rem;
+  background-color: crimson;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: darkred;
+}
+
+.status-msg {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: green;
+}
+
+/* Footer with Contact */
+.footer {
+  background-color: #fff;
+  padding: 2rem;
+  margin-top: 3rem;
+  border-top: 1px solid #eee;
+  text-align: center;
+  width: 100%;
+}
+
+.footer p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.footer a {
+  color: crimson;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 0.5rem;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

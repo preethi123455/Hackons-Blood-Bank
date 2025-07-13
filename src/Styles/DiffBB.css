@@ -1,0 +1,71 @@
+.diff-bb-container {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff5f5;
+  min-height: 100vh;
+}
+
+.diff-bb-container h2 {
+  color: #c40000;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.bb-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.bb-card {
+  border: 2px solid #c40000;
+  border-radius: 12px;
+  padding: 20px;
+  width: 320px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(196, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.bb-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(196, 0, 0, 0.3);
+}
+
+.bb-card h3 {
+  color: #c40000;
+  margin-bottom: 10px;
+}
+
+.bb-card p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.bb-card table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.bb-card th,
+.bb-card td {
+  border: 1px solid #c40000;
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.bb-card th {
+  background-color: #ffeaea;
+  color: #c40000;
+  font-weight: bold;
+}
+
+.bb-card td {
+  background-color: #fffafa;
+}

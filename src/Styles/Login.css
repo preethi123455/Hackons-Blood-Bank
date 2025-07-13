@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+}
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.login-form {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+}
+
+.login-form h1 {
+  text-align: center;
+  color: #8B0000; /* Blood red */
+  margin-bottom: 24px;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border 0.3s ease;
+}
+
+input:focus {
+  border-color: #8B0000;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #8B0000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #a10000;
+}
+
+.error {
+  color: #8B0000;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+p {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 14px;
+}
+
+p a {
+  color: #8B0000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
