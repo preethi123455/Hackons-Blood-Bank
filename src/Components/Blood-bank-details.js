@@ -22,7 +22,7 @@ const ReceiverHomepage = () => {
   useEffect(() => {
     const fetchBloodBanks = async () => {
       try {
-        const res = await axios.get('http://localhost:8000/fetch-all-bloodbanks');
+        const res = await axios.get('https://blood-qgas.onrender.com/fetch-all-bloodbanks');
         if (res.data.success) {
           setBloodBanks(res.data.bloodBanks);
         }

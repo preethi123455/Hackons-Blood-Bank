@@ -10,13 +10,13 @@ const MatchDonors = () => {
   useEffect(() => {
     const fetchDataAndMatch = async () => {
       try {
-        const donorRes = await axios.get("http://localhost:8000/api/donors");
+        const donorRes = await axios.get("https://blood-qgas.onrender.com/api/donors");
         const donors = donorRes.data?.donors || [];
 
-        const historyRes = await axios.get("http://localhost:8000/api/request-history");
+        const historyRes = await axios.get("https://blood-qgas.onrender.com/api/request-history");
         const requests = historyRes.data?.data || [];
 
-        const bankRes = await axios.get("http://localhost:8000/fetch-all-bloodbanks");
+        const bankRes = await axios.get("https://blood-qgas.onrender.com/fetch-all-bloodbanks");
         const banks = bankRes.data?.bloodBanks || [];
 
         const donorMatches = [];

@@ -11,8 +11,8 @@ const AdminDashboard = () => {
   // Fetch Pending Users + Donors
   const fetchPendingData = async () => {
     try {
-      const usersRes = await axios.get("http://localhost:8000/api/pending-users");
-      const donorsRes = await axios.get("http://localhost:8000/api/pending-donors");
+      const usersRes = await axios.get("https://blood-qgas.onrender.com/api/pending-users");
+      const donorsRes = await axios.get("https://blood-qgas.onrender.com/api/pending-donors");
 
       setPendingUsers(usersRes.data.pendingUsers || []);
       setPendingDonors(donorsRes.data.pendingDonors || []);
@@ -30,7 +30,7 @@ const AdminDashboard = () => {
   // Approve user
   const approveUser = async (id) => {
     try {
-      await axios.post(`http://localhost:8000/api/approve-user/${id}`);
+      await axios.post(`https://blood-qgas.onrender.com/api/approve-user/${id}`);
       setMessage("✅ User approved successfully");
       fetchPendingData();
     } catch (error) {
@@ -42,7 +42,7 @@ const AdminDashboard = () => {
   // Reject user
   const rejectUser = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/api/reject-user/${id}`);
+      await axios.delete(`https://blood-qgas.onrender.com/api/reject-user/${id}`);
       setMessage("❌ User rejected");
       fetchPendingData();
     } catch (error) {
@@ -54,7 +54,7 @@ const AdminDashboard = () => {
   // Approve donor
   const approveDonor = async (id) => {
     try {
-      await axios.post(`http://localhost:8000/api/approve-donor/${id}`);
+      await axios.post(`https://blood-qgas.onrender.com/api/approve-donor/${id}`);
       setMessage("✅ Donor approved successfully");
       fetchPendingData();
     } catch (error) {
@@ -66,7 +66,7 @@ const AdminDashboard = () => {
   // Reject donor
   const rejectDonor = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/api/reject-donor/${id}`);
+      await axios.delete(`https://blood-qgas.onrender.com/api/reject-donor/${id}`);
       setMessage("❌ Donor rejected");
       fetchPendingData();
     } catch (error) {

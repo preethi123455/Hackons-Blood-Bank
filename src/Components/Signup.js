@@ -32,7 +32,7 @@ function SignUp() {
         }
 
         try {
-            const response = await axios.post('http://localhost:8000/signup', formData, {
+            const response = await axios.post('https://blood-qgas.onrender.com/signup', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

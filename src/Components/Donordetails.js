@@ -10,7 +10,7 @@ const DonorDetails = () => {
   useEffect(() => {
     const fetchDonors = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/donors');
+        const response = await axios.get('https://blood-qgas.onrender.com/api/donors');
         setDonors(response.data.donors || []);
         setLoading(false);
       } catch (err) {

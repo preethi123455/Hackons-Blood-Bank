@@ -11,7 +11,7 @@ export default function DiffBB() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/fetch-all-bloodbanks")
+      .get("https://blood-qgas.onrender.com/fetch-all-bloodbanks")
       .then((res) => {
         const filteredBanks = res.data.bloodBanks.filter(
           (bank) => bank.email !== userEmail

@@ -130,28 +130,6 @@ const ReceiverHomepage = () => {
           </div>
         </div>
       </section>
-
-      <div
-        style={{
-          position: 'fixed',
-          bottom: '20px',
-          right: '20px',
-          backgroundColor: '#6200ea',
-          borderRadius: '50%',
-          width: '65px',
-          height: '65px',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          boxShadow: '0 6px 12px rgba(0,0,0,0.2)',
-          cursor: 'pointer',
-          zIndex: 1000,
-        }}
-        title="Chat with BloodLink Assistant"
-        onClick={() => navigate('/chatbot')}
-      >
-        <span style={{ fontSize: '30px', color: '#fff' }}>🤖</span>
-      </div>
       <section className="emergency-banner">
         <div className="banner-content">
           <div className="banner-icon">🚨</div>

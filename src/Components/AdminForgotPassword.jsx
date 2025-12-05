@@ -9,7 +9,7 @@ const AdminForgotPassword = () => {
   const [message, setMessage] = useState("");
 
   const sendOtp = async () => {
-    const res = await fetch("http://localhost:8000/admin-forgot-password", {
+    const res = await fetch("https://blood-qgas.onrender.com/admin-forgot-password", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email }),
@@ -20,7 +20,7 @@ const AdminForgotPassword = () => {
   };
 
   const verifyOtp = async () => {
-    const res = await fetch("http://localhost:8000/admin-verify-otp", {
+    const res = await fetch("https://blood-qgas.onrender.com/admin-verify-otp", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, otp }),
@@ -31,7 +31,7 @@ const AdminForgotPassword = () => {
   };
 
   const resetPassword = async () => {
-    const res = await fetch("http://localhost:8000/admin-reset-password", {
+    const res = await fetch("https://blood-qgas.onrender.com/admin-reset-password", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, newPassword }),

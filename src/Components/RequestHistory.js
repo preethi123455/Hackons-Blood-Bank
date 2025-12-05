@@ -8,7 +8,7 @@ export default function RequestHistory() {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const res = await fetch("http://localhost:8000/api/request-history");
+        const res = await fetch("https://blood-qgas.onrender.com/api/request-history");
         const result = await res.json();
 
         if (!res.ok) {

@@ -74,7 +74,7 @@ const BloodLinkHome = () => {
         medicalConditions: formData.medicalConditions || ""
       };
 
-      await axios.post('http://localhost:8000/api/donors-pending', dataToSend);
+      await axios.post('https://blood-qgas.onrender.com/api/donors-pending', dataToSend);
       alert('✅ Donor request submitted for admin approval!');
       // reset
       setFormData({
@@ -262,14 +262,6 @@ const BloodLinkHome = () => {
           </div>
         </div>
       )}
-
-      <div
-        className="chatbot-icon"
-        title="Chat with BloodLink Assistant"
-        onClick={() => navigate('/chatbot')}
-      >
-        <span role="img" aria-label="Chatbot">🤖</span>
-      </div>
     </div>
   );
 };

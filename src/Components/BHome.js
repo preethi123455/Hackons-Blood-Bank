@@ -15,7 +15,7 @@ const BHome = () => {
   useEffect(() => {
     const fetchStock = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/fetch-bloodbank", {
+        const response = await axios.get("https://blood-qgas.onrender.com/fetch-bloodbank", {
           params: { userId },
         });
         if (response.data.success) {
@@ -68,7 +68,7 @@ const BHome = () => {
     if (!confirm2) return;
 
     try {
-      const response = await axios.post("http://localhost:8000/register-bloodbank", {
+      const response = await axios.post("https://blood-qgas.onrender.com/register-bloodbank", {
         name,
         bloodAvailability: bloodData,
         userId,
@@ -190,7 +190,6 @@ const BHome = () => {
                     >
                       +
                     </button>
-                    <span style={{ marginLeft: "10px" }}>units</span>
                   </div>
                 </div>
               ))}

@@ -30,7 +30,7 @@ const Emergency = () => {
     setError('');
 
     try {
-      const res = await axios.post('http://localhost:8000/api/emergency-request', formData);
+      const res = await axios.post('https://blood-qgas.onrender.com/api/emergency-request', formData);
       setMessage(res.data.message || 'Emergency request sent successfully!');
       setFormData({
         recipientName: '',
@@ -55,7 +55,7 @@ const Emergency = () => {
   useEffect(() => {
     const fetchDonors = async () => {
       try {
-        const res = await axios.get('http://localhost:8000/api/donors');
+        const res = await axios.get('https://blood-qgas.onrender.com/api/donors');
         setDonors(res.data.donors || []);
       } catch (err) {
         console.error('Failed to fetch donors:', err.message);

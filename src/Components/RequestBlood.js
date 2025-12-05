@@ -32,7 +32,7 @@ export default function RequestBlood() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:8000/api/request-blood", {
+      const res = await fetch("https://blood-qgas.onrender.com/api/request-blood", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

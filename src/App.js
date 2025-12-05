@@ -8,7 +8,6 @@ import Farticle from "./Components/ScienceArticle";
 import Sarticle from "./Components/BloodTypeCompatibility";
 import Tarticle from "./Components/DonationPreparation";
 import Landing from "./Components/LandingPage";
-import Chatbot from "./Components/Chatbot";
 import DiffBB from './Components/DiffBB';
 import Requesthistory from "./Components/RequestHistory";
 import Bankdetails from "./Components/Blood-bank-details";
@@ -37,7 +36,6 @@ function App() {
         <Route path="/sarticle" element={<Sarticle />} />
         <Route path="/Tarticle" element={<Tarticle />} />
         <Route path="/logout" element={<Landing />} />
-        <Route path="/chatbot" element={<Chatbot />} />
          <Route path="/diffbb" element={<DiffBB />} />
          <Route path="/history" element={<RequestHistory />} />
          <Route path="/bankdetails" element={<Bankdetails />} />
