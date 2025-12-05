@@ -116,12 +116,12 @@ const ReceiverHomepage = () => {
             <p>View your previous blood requests and statuses.</p>
             <div className="card-arrow">→</div>
           </div>
-          <div className="action-card" onClick={() => navigate('/bankdetails')}>
+          {/*<div className="action-card" onClick={() => navigate('/bankdetails')}>
             <div className="card-icon">🩸</div>
             <h3>Find BloodBank</h3>
             <p>Find Donators[BloodBanks]</p>
             <div className="card-arrow">→</div>
-          </div>
+          </div>*/}
           <div className="action-card" onClick={() => navigate('/donordetails')}>
             <div className="card-icon">🩸</div>
             <h3>Find Donors(individual)</h3>

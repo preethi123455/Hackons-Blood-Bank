@@ -1,0 +1,110 @@
+/* AdminLogin.css */
+.admin-login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #fff5f5 0%, #ffffff 100%);
+  padding: 40px 20px;
+}
+
+.admin-login-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 28px 28px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  text-align: left;
+}
+
+.admin-login-card h2 {
+  margin: 0 0 6px;
+  color: #c10f0f;
+  font-size: 24px;
+}
+
+.admin-login-card .muted {
+  color: #666;
+  margin-bottom: 18px;
+  font-size: 14px;
+}
+
+.login-error {
+  background: #ffe6e6;
+  color: #9a0000;
+  border: 1px solid #f0bcbc;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* form layout */
+.admin-login-form .form-group {
+  margin-bottom: 14px;
+}
+
+.admin-login-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+.admin-login-form input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+}
+
+.admin-login-form input:focus {
+  border-color: #c10f0f;
+}
+
+/* actions */
+.form-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.admin-login-card .submit-btn {
+  background-color: red;
+  color: white;
+  padding: 10px 16px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.admin-login-card .submit-btn:hover {
+  background-color: #cc0000;
+}
+
+.admin-login-card .outline-btn.mini {
+  background: transparent;
+  border: 2px solid red;
+  color: red;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.admin-login-card .outline-btn.mini:hover {
+  background: red;
+  color: white;
+}
+
+.admin-hint {
+  margin-top: 12px;
+  color: #666;
+  font-size: 13px;
+  text-align: left;
+}

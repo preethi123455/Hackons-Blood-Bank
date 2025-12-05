@@ -7,44 +7,91 @@ const BloodLinkHome = () => {
   const [formData, setFormData] = useState({
     name: '',
     location: '',
-    aadhar: null,
+    // aadhar will be handled separately as base64
     bloodType: '',
     phone: '',
+    age: '',
+    gender: '',
+    weight: '',
+    lastDonation: '',
+    email: '',
+    medicalConditions: ''
   });
 
+  const [aadharBase64, setAadharBase64] = useState('');
+  const [aadharType, setAadharType] = useState('');
+  const [aadharName, setAadharName] = useState('');
   const [showForm, setShowForm] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
+
+    // handle aadhar file separately: convert to base64
+    if (name === "aadhar" && files && files[0]) {
+      const file = files[0];
+      setAadharType(file.type);
+      setAadharName(file.name);
+
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        // reader.result is data:<type>;base64,<data>
+        const base64Data = reader.result.split(',')[1];
+        setAadharBase64(base64Data);
+      };
+      reader.readAsDataURL(file);
+      return;
+    }
+
     setFormData({
       ...formData,
-      [name]: files ? files[0] : value,
+      [name]: value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // Basic validation
+      if (!formData.name || !formData.location || !formData.bloodType || !formData.phone || !formData.age || !formData.gender || !formData.weight || !formData.email) {
+        alert("Please fill required fields.");
+        return;
+      }
+
       const dataToSend = {
         name: formData.name,
         location: formData.location,
-        aadhar: formData.aadhar ? formData.aadhar.name : 'N/A',
+        aadharBase64: aadharBase64 || null,
+        aadharType: aadharType || null,
+        aadharName: aadharName || null,
         bloodType: formData.bloodType,
         phone: formData.phone,
+        age: Number(formData.age),
+        gender: formData.gender,
+        weight: Number(formData.weight),
+        lastDonation: formData.lastDonation || null,
+        email: formData.email,
+        medicalConditions: formData.medicalConditions || ""
       };
 
-      const response = await axios.post('http://localhost:8000/api/donors', dataToSend);
-      alert('✅ Form submitted successfully!');
-      console.log(response.data);
-
+      await axios.post('http://localhost:8000/api/donors-pending', dataToSend);
+      alert('✅ Donor request submitted for admin approval!');
+      // reset
       setFormData({
         name: '',
         location: '',
-        aadhar: null,
         bloodType: '',
         phone: '',
+        age: '',
+        gender: '',
+        weight: '',
+        lastDonation: '',
+        email: '',
+        medicalConditions: ''
       });
+      setAadharBase64('');
+      setAadharType('');
+      setAadharName('');
       setShowForm(false);
     } catch (error) {
       console.error('❌ Submission error:', error);
@@ -70,9 +117,6 @@ const BloodLinkHome = () => {
           <div className="hero-buttons">
             <button className="register-btn" onClick={() => setShowForm(true)}>
               Register as Donor
-            </button>
-            <button className="outline-btn" onClick={() => navigate('/bankdetails')}>
-              Find Blood Bank
             </button>
           </div>
         </div>
@@ -126,55 +170,57 @@ const BloodLinkHome = () => {
       {showForm && (
         <div className="modal-overlay">
           <div className="modal-content">
-            <span className="close-btn" onClick={() => setShowForm(false)}>
-              ×
-            </span>
+            <span className="close-btn" onClick={() => setShowForm(false)}>×</span>
             <h2>Register as a Donor ❤️</h2>
             <p>Kindly fill in the form to become a lifesaver.</p>
 
             <form className="donor-form" onSubmit={handleSubmit}>
+              {/* Full Name */}
               <div className="form-group">
                 <label>Full Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  placeholder="Enter full name"
-                />
+                <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="Enter full name" />
               </div>
 
+              {/* Location */}
               <div className="form-group">
                 <label>Location</label>
-                <input
-                  type="text"
-                  name="location"
-                  value={formData.location}
-                  onChange={handleChange}
-                  required
-                  placeholder="Enter your city"
-                />
+                <input type="text" name="location" value={formData.location} onChange={handleChange} required placeholder="Enter your city" />
               </div>
 
+              {/* Aadhaar Proof */}
               <div className="form-group">
                 <label>Aadhaar Proof (PDF/Image)</label>
-                <input
-                  type="file"
-                  name="aadhar"
-                  accept=".pdf, image/*"
-                  onChange={handleChange}
-                />
+                <input type="file" name="aadhar" accept=".pdf, image/*" onChange={handleChange} />
+                {aadharName && <small>Selected: {aadharName}</small>}
               </div>
 
+              {/* Age */}
+              <div className="form-group">
+                <label>Age</label>
+                <input type="number" name="age" value={formData.age} onChange={handleChange} required min="18" max="65" placeholder="Enter your age" />
+              </div>
+
+              {/* Gender */}
+              <div className="form-group">
+                <label>Gender</label>
+                <select name="gender" value={formData.gender} onChange={handleChange} required>
+                  <option value="">Select gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              {/* Weight */}
+              <div className="form-group">
+                <label>Weight (kg)</label>
+                <input type="number" name="weight" value={formData.weight} onChange={handleChange} required min="45" placeholder="Enter weight in kg" />
+              </div>
+
+              {/* Blood Type */}
               <div className="form-group">
                 <label>Blood Type</label>
-                <select
-                  name="bloodType"
-                  value={formData.bloodType}
-                  onChange={handleChange}
-                  required
-                >
+                <select name="bloodType" value={formData.bloodType} onChange={handleChange} required>
                   <option value="">Select your blood type</option>
                   <option value="A+">A+</option>
                   <option value="A-">A−</option>
@@ -187,22 +233,31 @@ const BloodLinkHome = () => {
                 </select>
               </div>
 
+              {/* Phone */}
               <div className="form-group">
                 <label>Phone Number</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                  pattern="[0-9]{10}"
-                  placeholder="Enter 10-digit phone number"
-                />
+                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required pattern="[0-9]{10}" placeholder="Enter 10-digit phone number" />
               </div>
 
-              <button type="submit" className="submit-btn">
-                Submit
-              </button>
+              {/* Email */}
+              <div className="form-group">
+                <label>Email</label>
+                <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="Enter your email" />
+              </div>
+
+              {/* Last Donation */}
+              <div className="form-group">
+                <label>Last Donation Date</label>
+                <input type="date" name="lastDonation" value={formData.lastDonation} onChange={handleChange} />
+              </div>
+
+              {/* Medical Conditions */}
+              <div className="form-group">
+                <label>Medical Conditions (if any)</label>
+                <textarea name="medicalConditions" value={formData.medicalConditions} onChange={handleChange} placeholder="Mention health issues if any"></textarea>
+              </div>
+
+              <button type="submit" className="submit-btn">Submit</button>
             </form>
           </div>
         </div>

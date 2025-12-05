@@ -13,7 +13,7 @@ const MatchDonors = () => {
         const donorRes = await axios.get("http://localhost:8000/api/donors");
         const donors = donorRes.data?.donors || [];
 
-        const historyRes = await axios.get("http://localhost:5000/api/request-history");
+        const historyRes = await axios.get("http://localhost:8000/api/request-history");
         const requests = historyRes.data?.data || [];
 
         const bankRes = await axios.get("http://localhost:8000/fetch-all-bloodbanks");

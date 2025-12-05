@@ -25,7 +25,7 @@ const LandingPage = () => {
 
   return (
     <div className="landing-container">
-      <div className="home-icon" onClick={handleAdminLogin} title="Admin Login">
+      <div className="home-icon" onClick={() => navigate('/adminlog')} title="Admin Login">
         🏠
       </div>
 

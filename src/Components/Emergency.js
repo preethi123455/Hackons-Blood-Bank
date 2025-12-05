@@ -64,12 +64,39 @@ const Emergency = () => {
     fetchDonors();
   }, []);
 
-  const uniqueBloodGroups = [...new Set(donors.map(d => d.bloodType))];
+  const bloodGroups = ['O-', 'O+', 'A-', 'A+', 'B-', 'B+', 'AB-', 'AB+'];
+
   const uniqueLocations = [...new Set(donors.map(d => d.location))];
+
   const filteredDonors = donors.filter(donor => {
-    const matchesGroup = selectedGroup ? donor.bloodType === selectedGroup : true;
-    const matchesLocation = selectedLocation ? donor.location === selectedLocation : true;
-    return matchesGroup && matchesLocation;
+    if (!selectedGroup) return true;
+
+    if (selectedGroup === 'A-'||selectedGroup === 'B-') {
+      return [selectedGroup,'O-','O+'].includes(donor.bloodType);
+    }
+    if (selectedGroup === 'O-'){
+      return [selectedGroup].includes(donor.bloodType);
+    }
+    if (selectedGroup === 'O+'){
+      return [selectedGroup,'O-'].includes(donor.bloodType);
+    }
+    if (selectedGroup === 'A+'){
+      return [selectedGroup,'O-','O+','A-'].includes(donor.bloodType);
+    }
+    if (selectedGroup === 'B+'){
+      return [selectedGroup,'O-','O+','B-'].includes(donor.bloodType);
+    }
+    if (selectedGroup === 'AB+') {
+      return [selectedGroup,'O-', 'O+','A+','A-','B+','B-','AB-'].includes(donor.bloodType);
+    }
+    if (selectedGroup === 'AB-') {
+      return [selectedGroup,'O-','A-','B-'].includes(donor.bloodType);
+    }
+
+    return donor.bloodType === selectedGroup || donor.bloodType === 'O+';
+
+  }).filter(donor => {
+    return selectedLocation ? donor.location === selectedLocation : true;
   });
 
   const handleCall = async (phoneNumber) => {
@@ -160,7 +187,7 @@ const Emergency = () => {
             style={styles.input}
           >
             <option value="">All Blood Groups</option>
-            {uniqueBloodGroups.map((group, idx) => (
+            {bloodGroups.map((group, idx) => (
               <option key={idx} value={group}>
                 {group}
               </option>
@@ -189,9 +216,10 @@ const Emergency = () => {
                 <p><strong>Blood Type:</strong> {donor.bloodType}</p>
                 <p><strong>Location:</strong> {donor.location}</p>
                 <p><strong>Phone:</strong> {donor.phone}</p>
-                <button onClick={() => handleCall(donor.phone)} style={styles.callButton}>
+                {/* Uncomment to enable calling */}
+                {/* <button onClick={() => handleCall(donor.phone)} style={styles.callButton}>
                   Call Now
-                </button>
+                </button> */}
               </div>
             ))
           ) : (

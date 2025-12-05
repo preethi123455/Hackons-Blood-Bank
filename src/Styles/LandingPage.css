@@ -79,7 +79,7 @@
 
 .get-started-btn {
   padding: 12px 28px;
-  background: #f44336;
+  background: #ff3b3b;
   color: white;
   border: none;
   border-radius: 8px;
@@ -89,7 +89,7 @@
 }
 
 .get-started-btn:hover {
-  background: #d32f2f;
+  background: #ff3b3b;
 }
 
 .emergency-btn {

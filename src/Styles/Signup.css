@@ -25,7 +25,7 @@ form {
 
 h2 {
   text-align: center;
-  color: #4E0707; /* Deep blood red */
+  color: #ff3b3b; /* Deep blood red */
   margin-bottom: 24px;
 }
 
@@ -44,7 +44,7 @@ select {
 
 input:focus,
 select:focus {
-  border-color: #4E0707;
+  border-color: #ff3b3b;
   outline: none;
 }
 
@@ -52,7 +52,7 @@ button {
   width: 100%;
   padding: 12px;
   font-size: 16px;
-  background-color: #4E0707;
+  background-color: #ff3b3b;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -62,11 +62,11 @@ button {
 }
 
 button:hover {
-  background-color: #3b0505;
+  background-color: #ff3b3b;
 }
 
 .error {
-  color: #4E0707;
+  color: #ff3b3b;
   margin-top: 10px;
   text-align: center;
   font-size: 14px;

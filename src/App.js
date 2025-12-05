@@ -20,6 +20,8 @@ import ProfileSettings from './Components/ProfileSettings';
 import LandingPage from './Components/LandingPage';
 import DonorDetails from './Components/Donordetails';
 import AdminDashboard from './Components/AdminDashboard';
+import AdminLogin from './Components/Admin';
+import AdminForgotPassword from './Components/AdminForgotPassword';
 
 function App() {
   return (
@@ -46,6 +48,8 @@ function App() {
         <Route path="/history" element={<RequestHistory />} />
         <Route path="/profile" element={<ProfileSettings />} />
         <Route path="/donordetails" element={<DonorDetails />} />
+        <Route path="/adminlog" element={<AdminLogin />} />
+        <Route path="/adminforgetpassword" element={<AdminForgotPassword />} />
       </Routes>
     </Router>
   );
